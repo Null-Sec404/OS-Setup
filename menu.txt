@@ -1,0 +1,5 @@
+[1] - Nethunter No-root [Hacking OS]
+[2] - Arch Linux
+[3] - Ubuntu Linux
+[4] - Blackarch Linux [Hacking OS]
+[99] - Exit

@@ -1,0 +1,63 @@
+#!/bin/bash
+
+r="\033[1;91m"
+g="\033[1;92m"
+b="\033[1;96m"
+y="\033[1;93m"
+w="\033[1;97m"
+re="\033[1;0m"
+ma="\033[1;95m"
+
+main(){
+
+if [[ -x $(command -v figlet ) ]]; then
+
+clear && figlet SETUP | lolcat
+echo -e $r"Warning!!\n"
+echo -e $y"This script can help you to install linux os in termux for beginners or lazy users\n"
+
+cat menu.txt | lolcat
+echo
+read -p "$(echo -e $w"Enter number: $g")" os
+
+if [[ $os == "1" ]]; then
+
+wget -O kalifs-amd64-full.tar.xz https://build.nethunter.com/kalifs/kalifs-latest/kalifs-amd64-full.tar.xz
+wget -O nethunter https://offs.ec/2MceZWr
+chmod +x nethunter
+bash nethunter
+
+elif [[ $os == "2" ]]; then
+
+pkg install wget openssl-tool proot tar -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/arch.sh && echo -e "clear && bash arch.sh" >> .bashrc && bash arch.sh
+
+elif [[ $os == "3" ]]; then
+
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && echo -e "clear && bash ubuntu.sh" >> .bashrc && bash ubuntu.sh
+
+elif [[ $os == "4" ]]; then
+
+pacman-key --init && pacman-key --populate archlinuxarm && pacman -Sy --noconfirm curl && curl -O https://blackarch.org/strap.sh && chmod +x strap.sh && echo -e "clear && bash strap.sh" && ./strap.sh
+
+elif [[ $os == "99" ]]; then
+
+exit
+
+else
+
+main
+
+fi
+
+else
+
+clear && termux-setup-storage
+apt update && apt full-upgrade -y
+apt install -y root-repo unstable-repo x11-repo python3 openssh wget git axel proot figlet toilet nmap neofetch dnsutils coreutils crunch golang perl curl && pip install --upgrade pip && pip install lolcat bs4 requests cowsay termcolor colored
+echo "clear && nh -r" >> .bashrc
+
+fi
+
+}
+
+main
