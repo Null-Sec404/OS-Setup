@@ -3,6 +3,6 @@
 
 # How to install / วิธีติดตั้ง
 
-[1] cd OS-Setup br>
-[2] chmod +x os-setup
+[1] cd OS-Setup *br>.
+[2] chmod +x os-setup *br>.
 [3] ./os-setup
