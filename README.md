@@ -7,9 +7,7 @@
 
 
 
-
 [2] chmod +x os-setup
-
 
 
 
